@@ -1,4 +1,4 @@
-import type { MetaFunction } from "@remix-run/cloudflare";
+import type { LinksFunction, MetaFunction } from "@remix-run/cloudflare";
 import {
   Links,
   LiveReload,
@@ -8,11 +8,17 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 
+import tailwindStyles from "./styles/tailwind.css";
+
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
   title: "New Remix App",
   viewport: "width=device-width,initial-scale=1",
 });
+
+export const links: LinksFunction = () => [
+  { rel: "stylesheet", href: tailwindStyles },
+];
 
 export default function App() {
   return (
