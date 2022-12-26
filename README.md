@@ -1,3 +1,5 @@
+![nu-jazz-readme-photo](https://user-images.githubusercontent.com/107425056/209567018-40ef62bf-0f65-408c-8105-af2f5d4b0a9a.png)
+
 # Nu Jazz Remix Stack
 
 ⚠️ This is community maintained Remix Stack. The Remix team does not maintain or check this. Learn more about [Remix Stacks](https://remix.run/stacks). Learn more about [Remix Docs](https://remix.run/docs).
