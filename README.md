@@ -37,7 +37,7 @@ In your `loader` functions, you can access environment variables directly on `co
 
 ```js
 export const loader = async ({ context }: LoaderArgs) => {
-  console.log(context.SOME_SECRET);
+	console.log(context.SOME_SECRET);
 };
 ```
 
