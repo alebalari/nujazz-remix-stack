@@ -6,8 +6,8 @@
 
 | Package         | Version |
 | --------------- | ------- |
-| 🚀 React        | 18.2.0  |
 | 💿 Remix.run    | 1.9.0   |
+| 🚀 React        | 18.2.0  |
 | 🖌️ Tailwind CSS | 3.2.4   |
 | ⌨️ Typescript   | 4.8.4   |
 | ⛏️ Eslint       | 8.27.0  |
@@ -25,7 +25,11 @@ Open up [http://127.0.0.1:8788](http://127.0.0.1:8788) and you should be ready t
 
 ### Environmental Variables
 
-When using Cloudflare Pages, env variables work differently. Local environment variables should be defined in a `.dev.vars` file in the `root` directory. It has the same syntax as a `.env` file.
+When using Cloudflare Pages, `env` variables work differently. Local environment variables should be defined in a `.dev.vars` file in the `root` directory. It shares the same syntax as an `.env` file.
+
+```sh
+SOME_SECRET = "insert secret here"
+```
 
 In your `loader` functions, you can access environment variables directly on `context`:
 
