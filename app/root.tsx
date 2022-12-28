@@ -3,15 +3,15 @@ import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from '@re
 
 import tailwindStyles from './styles/tailwind.css';
 
+export const links: LinksFunction = () => [{ rel: 'stylesheet', href: tailwindStyles }];
+
 export const meta: MetaFunction = () => ({
 	charset: 'utf-8',
 	title: 'New Remix App',
 	viewport: 'width=device-width,initial-scale=1',
 });
 
-export const links: LinksFunction = () => [{ rel: 'stylesheet', href: tailwindStyles }];
-
-export default function App() {
+export default function RootApp() {
 	return (
 		<html lang='en'>
 			<head>
