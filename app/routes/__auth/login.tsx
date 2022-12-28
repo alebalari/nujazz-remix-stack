@@ -7,13 +7,13 @@ export const meta: MetaFunction = () => {
 	};
 };
 
-export default function SignUp() {
+export default function Login() {
 	return (
 		<>
 			<div className='flex items-center justify-center py-6 px-4 sm:px-0 lg:py-0'>
 				<Form
 					method='post'
-					action='/signup'
+					action='/login'
 					className='max-w-md space-y-4 md:space-y-6 xl:max-w-xl'>
 					<h2 className='text-xl font-bold text-gray-900 dark:text-white'>Welcome back</h2>
 					<div className='items-center space-y-3 space-x-0 sm:flex sm:space-x-4 sm:space-y-0'>
@@ -99,9 +99,9 @@ export default function SignUp() {
 							type='email'
 							name='email'
 							id='email'
-							class='block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400'
+							className='block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400'
 							placeholder='name@company.com'
-							required=''
+							required={true}
 						/>
 					</div>
 					<div>
@@ -115,8 +115,8 @@ export default function SignUp() {
 							name='password'
 							id='password'
 							placeholder='••••••••'
-							class='block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400'
-							required=''
+							className='block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400'
+							required={true}
 						/>
 					</div>
 					<div className='flex items-center justify-between space-y-3'>
@@ -126,8 +126,8 @@ export default function SignUp() {
 									id='terms'
 									aria-describedby='terms'
 									type='checkbox'
-									class='focus:ring-3 h-4 w-4 rounded border border-gray-300 bg-gray-50 focus:ring-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600'
-									required=''
+									className='focus:ring-3 h-4 w-4 rounded border border-gray-300 bg-gray-50 focus:ring-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600'
+									required={false}
 								/>
 							</div>
 							<div className='ml-3 text-sm'>

@@ -89,20 +89,37 @@ export default function SignUp() {
 						<div className='px-5 text-center text-gray-500 dark:text-gray-400'>or</div>
 						<div className='h-0.5 w-full bg-gray-200 dark:bg-gray-700'></div>
 					</div>
-					<div>
-						<label
-							htmlFor='full-name'
-							className='mb-2 block text-sm font-medium text-gray-900 dark:text-gray-300'>
-							What should we call you?
-						</label>
-						<input
-							type='text'
-							name='full-name'
-							id='email'
-							class='block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400'
-							placeholder='e.g. Bonnie Green'
-							required=''
-						/>
+					<div className='grid gap-6 sm:grid-cols-2'>
+						<div>
+							<label
+								htmlFor='first-name'
+								className='mb-2 block text-sm font-medium text-gray-900 dark:text-gray-300'>
+								First name
+							</label>
+							<input
+								type='text'
+								name='first-name'
+								id='first-name'
+								className='block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400'
+								placeholder='e.g. Bonnie'
+								required={true}
+							/>
+						</div>
+						<div>
+							<label
+								htmlFor='last-name'
+								className='mb-2 block text-sm font-medium text-gray-900 dark:text-gray-300'>
+								Last name
+							</label>
+							<input
+								type='text'
+								name='last-name'
+								id='last-name'
+								className='block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400'
+								placeholder='e.g. Green'
+								required={true}
+							/>
+						</div>
 					</div>
 					<div>
 						<label
@@ -114,9 +131,9 @@ export default function SignUp() {
 							type='email'
 							name='email'
 							id='email'
-							class='block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400'
+							className='block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400'
 							placeholder='name@company.com'
-							required=''
+							required={true}
 						/>
 					</div>
 					<div>
@@ -130,8 +147,8 @@ export default function SignUp() {
 							name='password'
 							id='password'
 							placeholder='••••••••'
-							class='block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400'
-							required=''
+							className='block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400'
+							required={true}
 						/>
 					</div>
 					<div>
@@ -145,8 +162,8 @@ export default function SignUp() {
 							name='confirm-password'
 							id='confirm-password'
 							placeholder='••••••••'
-							class='block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400'
-							required=''
+							className='block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400'
+							required={true}
 						/>
 					</div>
 					<div className='space-y-3'>
@@ -156,8 +173,8 @@ export default function SignUp() {
 									id='terms'
 									aria-describedby='terms'
 									type='checkbox'
-									class='focus:ring-3 h-4 w-4 rounded border border-gray-300 bg-gray-50 focus:ring-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600'
-									required=''
+									className='focus:ring-3 h-4 w-4 rounded border border-gray-300 bg-gray-50 focus:ring-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600'
+									required={true}
 								/>
 							</div>
 							<div className='ml-3 text-sm'>
@@ -186,8 +203,8 @@ export default function SignUp() {
 									id='newsletter'
 									aria-describedby='newsletter'
 									type='checkbox'
-									class='focus:ring-3 h-4 w-4 rounded border border-gray-300 bg-gray-50 focus:ring-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600'
-									required=''
+									className='focus:ring-3 h-4 w-4 rounded border border-gray-300 bg-gray-50 focus:ring-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600'
+									required={false}
 								/>
 							</div>
 							<div className='ml-3 text-sm'>
