@@ -13,7 +13,6 @@ export default function SignUp() {
 			<div className='flex items-center justify-center py-6 px-4 sm:px-0 lg:py-0'>
 				<Form
 					method='post'
-					action='/signup'
 					className='max-w-md space-y-4 md:space-y-6 xl:max-w-xl'>
 					<h2 className='text-xl font-bold text-gray-900 dark:text-white'>Your Best Work Starts Here</h2>
 					<div className='items-center space-y-3 space-x-0 sm:flex sm:space-x-4 sm:space-y-0'>
