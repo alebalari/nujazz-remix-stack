@@ -12,7 +12,7 @@ import {
 } from '@remix-run/react';
 import { createBrowserClient, createServerClient } from '@supabase/auth-helpers-remix';
 import { useEffect, useState } from 'react';
-import type { Database } from 'types';
+import type { Database } from '~/types';
 
 import tailwindStyles from './styles/tailwind.css';
 
@@ -35,7 +35,7 @@ export const loader: LoaderFunction = async ({ request, context }: LoaderArgs) =
 	// This is used to make sure the session is available immediately upon rendering
 	const response = new Response();
 
-	const supabaseClient = createServerClient<Database>(
+	const supabaseServerClient = createServerClient<Database>(
 		env.SUPABASE_URL as string,
 		env.SUPABASE_ANON_PUBLIC_KEY as string,
 		{
@@ -46,7 +46,7 @@ export const loader: LoaderFunction = async ({ request, context }: LoaderArgs) =
 
 	const {
 		data: { session },
-	} = await supabaseClient.auth.getSession();
+	} = await supabaseServerClient.auth.getSession();
 
 	// in order for the set-cookie header to be set,
 	// headers must be returned as part of the loader response
@@ -61,7 +61,7 @@ export const loader: LoaderFunction = async ({ request, context }: LoaderArgs) =
 	);
 };
 
-export default function RootApp() {
+export default function Root() {
 	const { env, session } = useLoaderData<typeof loader>();
 	const fetcher = useFetcher();
 
@@ -69,18 +69,18 @@ export default function RootApp() {
 	// to use across client components - outlet context 👇
 	const [supabase] = useState(() => createBrowserClient<Database>(env.SUPABASE_URL, env.SUPABASE_ANON_PUBLIC_KEY));
 
-	const serverAccessToken = session?.access_token;
+	const accessToken = session?.access_token;
 
 	useEffect(() => {
 		const {
 			data: { subscription },
 		} = supabase.auth.onAuthStateChange((event, session) => {
-			if (session?.access_token !== serverAccessToken) {
+			if (session?.access_token !== accessToken) {
 				// server and client are out of sync.
 				// Remix recalls active loaders after actions complete
 				fetcher.submit(null, {
 					method: 'post',
-					action: '/?index',
+					action: '/',
 				});
 			}
 		});
@@ -88,7 +88,7 @@ export default function RootApp() {
 		return () => {
 			subscription.unsubscribe();
 		};
-	}, [serverAccessToken, supabase, fetcher]);
+	}, [accessToken, supabase, fetcher]);
 
 	return (
 		<html lang='en'>

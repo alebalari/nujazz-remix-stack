@@ -1,5 +1,5 @@
-import type { Session, SupabaseClient } from "@supabase/auth-helpers-remix";
-import type { Database } from "./database";
+import type { Session, SupabaseClient } from '@supabase/auth-helpers-remix';
+import type { Database } from './database';
 
 export type TypedSupabaseClient = SupabaseClient<Database>;
 export type MaybeSession = Session | null;
