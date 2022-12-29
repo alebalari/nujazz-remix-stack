@@ -10,10 +10,20 @@ import {
 	useFetcher,
 	useLoaderData,
 } from '@remix-run/react';
+import type { Session, SupabaseClient } from '@supabase/auth-helpers-remix';
 import { createBrowserClient, createServerClient } from '@supabase/auth-helpers-remix';
 import { useEffect, useState } from 'react';
+import type { Database } from 'types/supabase';
 
 import tailwindStyles from './styles/tailwind.css';
+
+export type TypedSupabaseClient = SupabaseClient<Database>;
+export type MaybeSession = Session | null;
+
+export type SupabaseContext = {
+	supabase: TypedSupabaseClient;
+	session: MaybeSession;
+};
 
 export const links: LinksFunction = () => [{ rel: 'stylesheet', href: tailwindStyles }];
 
@@ -34,10 +44,14 @@ export const loader: LoaderFunction = async ({ request, context }: LoaderArgs) =
 	// This is used to make sure the session is available immediately upon rendering
 	const response = new Response();
 
-	const supabaseClient = createServerClient(env.SUPABASE_URL as string, env.SUPABASE_ANON_PUBLIC_KEY as string, {
-		request,
-		response,
-	});
+	const supabaseClient = createServerClient<Database>(
+		env.SUPABASE_URL as string,
+		env.SUPABASE_ANON_PUBLIC_KEY as string,
+		{
+			request,
+			response,
+		}
+	);
 
 	const {
 		data: { session },
@@ -62,7 +76,7 @@ export default function RootApp() {
 
 	// it is important to create a single instance of Supabase
 	// to use across client components - outlet context 👇
-	const [supabase] = useState(() => createBrowserClient(env.SUPABASE_URL, env.SUPABASE_ANON_PUBLIC_KEY));
+	const [supabase] = useState(() => createBrowserClient<Database>(env.SUPABASE_URL, env.SUPABASE_ANON_PUBLIC_KEY));
 
 	const serverAccessToken = session?.access_token;
 
