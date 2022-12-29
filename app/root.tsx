@@ -19,7 +19,7 @@ export const links: LinksFunction = () => [{ rel: 'stylesheet', href: tailwindSt
 
 export const meta: MetaFunction = () => ({
 	charset: 'utf-8',
-	title: 'Home',
+	title: 'Application',
 	viewport: 'width=device-width,initial-scale=1',
 });
 
@@ -33,6 +33,7 @@ export const loader: LoaderFunction = async ({ request, context }: LoaderArgs) =
 	// We can retrieve the session on the server and hand it to the client.
 	// This is used to make sure the session is available immediately upon rendering
 	const response = new Response();
+
 	const supabaseClient = createServerClient(env.SUPABASE_URL as string, env.SUPABASE_ANON_PUBLIC_KEY as string, {
 		request,
 		response,
@@ -58,6 +59,7 @@ export const loader: LoaderFunction = async ({ request, context }: LoaderArgs) =
 export default function RootApp() {
 	const { env, session } = useLoaderData<typeof loader>();
 	const fetcher = useFetcher();
+
 	// it is important to create a single instance of Supabase
 	// to use across client components - outlet context 👇
 	const [supabase] = useState(() => createBrowserClient(env.SUPABASE_URL, env.SUPABASE_ANON_PUBLIC_KEY));

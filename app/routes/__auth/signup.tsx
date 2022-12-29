@@ -182,17 +182,17 @@ export default function SignUp() {
 									htmlFor='terms'
 									className='font-light text-gray-500 dark:text-gray-300'>
 									By signing up, you are creating a Flowbite account, and you agree to Flowbite’s{' '}
-									<a
+									<Link
 										className='font-medium text-primary-600 hover:underline dark:text-primary-500'
-										href='/'>
+										to='/'>
 										Terms of Use
-									</a>{' '}
+									</Link>{' '}
 									and{' '}
-									<a
+									<Link
 										className='font-medium text-primary-600 hover:underline dark:text-primary-500'
-										href='/'>
+										to='/'>
 										Privacy Policy
-									</a>
+									</Link>
 									.
 								</label>
 							</div>
@@ -223,11 +223,11 @@ export default function SignUp() {
 					</button>
 					<p className='text-sm font-light text-gray-500 dark:text-gray-300'>
 						Already have an account?{' '}
-						<a
-							href='/'
+						<Link
+							to='/login'
 							className='font-medium text-primary-600 hover:underline dark:text-primary-500'>
 							Login here
-						</a>
+						</Link>
 					</p>
 				</Form>
 			</div>
@@ -286,10 +286,10 @@ export default function SignUp() {
 									x2='23.9577'
 									y2='12.9901'
 									gradientUnits='userSpaceOnUse'>
-									<stop stop-color='#1724C9' />
+									<stop stopColor='#1724C9' />
 									<stop
 										offset='1'
-										stop-color='#1C64F2'
+										stopColor='#1C64F2'
 									/>
 								</linearGradient>
 								<linearGradient
@@ -299,10 +299,10 @@ export default function SignUp() {
 									x2='19.7797'
 									y2='2.33321'
 									gradientUnits='userSpaceOnUse'>
-									<stop stop-color='#1C64F2' />
+									<stop stopColor='#1C64F2' />
 									<stop
 										offset='1'
-										stop-color='#0092FF'
+										stopColor='#0092FF'
 									/>
 								</linearGradient>
 								<linearGradient
@@ -312,10 +312,10 @@ export default function SignUp() {
 									x2='4.42432'
 									y2='5.99375'
 									gradientUnits='userSpaceOnUse'>
-									<stop stop-color='#0092FF' />
+									<stop stopColor='#0092FF' />
 									<stop
 										offset='1'
-										stop-color='#45B2FF'
+										stopColor='#45B2FF'
 									/>
 								</linearGradient>
 								<linearGradient
@@ -325,10 +325,10 @@ export default function SignUp() {
 									x2='27.2866'
 									y2='25.8192'
 									gradientUnits='userSpaceOnUse'>
-									<stop stop-color='#1C64F2' />
+									<stop stopColor='#1C64F2' />
 									<stop
 										offset='1'
-										stop-color='#0092FF'
+										stopColor='#0092FF'
 									/>
 								</linearGradient>
 								<linearGradient
@@ -338,10 +338,10 @@ export default function SignUp() {
 									x2='15.9825'
 									y2='24.1181'
 									gradientUnits='userSpaceOnUse'>
-									<stop stop-color='#1724C9' />
+									<stop stopColor='#1724C9' />
 									<stop
 										offset='1'
-										stop-color='#1C64F2'
+										stopColor='#1C64F2'
 									/>
 								</linearGradient>
 								<linearGradient
@@ -351,10 +351,10 @@ export default function SignUp() {
 									x2='31.7569'
 									y2='10.6178'
 									gradientUnits='userSpaceOnUse'>
-									<stop stop-color='#0092FF' />
+									<stop stopColor='#0092FF' />
 									<stop
 										offset='1'
-										stop-color='#45B2FF'
+										stopColor='#45B2FF'
 									/>
 								</linearGradient>
 								<linearGradient
@@ -364,10 +364,10 @@ export default function SignUp() {
 									x2='3.14054'
 									y2='20.4898'
 									gradientUnits='userSpaceOnUse'>
-									<stop stop-color='#1C64F2' />
+									<stop stopColor='#1C64F2' />
 									<stop
 										offset='1'
-										stop-color='#0092FF'
+										stopColor='#0092FF'
 									/>
 								</linearGradient>
 								<linearGradient
@@ -377,10 +377,10 @@ export default function SignUp() {
 									x2='10.4278'
 									y2='11.488'
 									gradientUnits='userSpaceOnUse'>
-									<stop stop-color='#1724C9' />
+									<stop stopColor='#1724C9' />
 									<stop
 										offset='1'
-										stop-color='#1C64F2'
+										stopColor='#1C64F2'
 									/>
 								</linearGradient>
 								<linearGradient
@@ -390,10 +390,10 @@ export default function SignUp() {
 									x2='14.0824'
 									y2='31.9579'
 									gradientUnits='userSpaceOnUse'>
-									<stop stop-color='#0092FF' />
+									<stop stopColor='#0092FF' />
 									<stop
 										offset='1'
-										stop-color='#45B2FF'
+										stopColor='#45B2FF'
 									/>
 								</linearGradient>
 							</defs>
