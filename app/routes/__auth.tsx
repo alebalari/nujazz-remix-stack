@@ -1,6 +1,6 @@
 import { Outlet, useOutletContext } from '@remix-run/react';
 
-import type { SupabaseContext } from '~/root';
+import type { SupabaseContext } from 'types';
 
 export default function __auth() {
 	// We use our outlet context to access our single instance of Supabase

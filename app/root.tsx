@@ -10,20 +10,11 @@ import {
 	useFetcher,
 	useLoaderData,
 } from '@remix-run/react';
-import type { Session, SupabaseClient } from '@supabase/auth-helpers-remix';
 import { createBrowserClient, createServerClient } from '@supabase/auth-helpers-remix';
 import { useEffect, useState } from 'react';
-import type { Database } from 'types/supabase';
+import type { Database } from 'types';
 
 import tailwindStyles from './styles/tailwind.css';
-
-export type TypedSupabaseClient = SupabaseClient<Database>;
-export type MaybeSession = Session | null;
-
-export type SupabaseContext = {
-	supabase: TypedSupabaseClient;
-	session: MaybeSession;
-};
 
 export const links: LinksFunction = () => [{ rel: 'stylesheet', href: tailwindStyles }];
 

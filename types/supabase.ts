@@ -1,46 +1,10 @@
-export type Json =
-  | string
-  | number
-  | boolean
-  | null
-  | { [key: string]: Json }
-  | Json[]
+import type { Session, SupabaseClient } from "@supabase/auth-helpers-remix";
+import type { Database } from "./database";
 
-export interface Database {
-  public: {
-    Tables: {
-      profiles: {
-        Row: {
-          user_uuid: string
-          created_at: string | null
-          modified_at: string | null
-          first_name: string | null
-          last_name: string | null
-        }
-        Insert: {
-          user_uuid: string
-          created_at?: string | null
-          modified_at?: string | null
-          first_name?: string | null
-          last_name?: string | null
-        }
-        Update: {
-          user_uuid?: string
-          created_at?: string | null
-          modified_at?: string | null
-          first_name?: string | null
-          last_name?: string | null
-        }
-      }
-    }
-    Views: {
-      [_ in never]: never
-    }
-    Functions: {
-      [_ in never]: never
-    }
-    Enums: {
-      [_ in never]: never
-    }
-  }
-}
+export type TypedSupabaseClient = SupabaseClient<Database>;
+export type MaybeSession = Session | null;
+
+export type SupabaseContext = {
+	supabase: TypedSupabaseClient;
+	session: MaybeSession;
+};

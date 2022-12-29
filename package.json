@@ -11,7 +11,6 @@
 		"format": "prettier --write .",
 		"start": "cross-env NODE_ENV=production npm run wrangler",
 		"typecheck": "tsc -b",
-		"update-types": "npx supabase gen types typescript --project-id \"$PROJECT_ID\" > types/supabase.ts",
 		"wrangler": "wrangler pages dev ./public",
 		"postinstall": "npm run build"
 	},
