@@ -10,7 +10,8 @@ import {
 	useFetcher,
 	useLoaderData,
 } from '@remix-run/react';
-import { createBrowserClient, createServerClient } from '@supabase/auth-helpers-remix';
+import { createBrowserClient } from '@supabase/auth-helpers-remix';
+import { CreateSupabaseServerClient } from '~/supabase.server';
 import { useEffect, useState } from 'react';
 import type { Database } from '~/types';
 
@@ -35,15 +36,11 @@ export const loader: LoaderFunction = async ({ request, context }: LoaderArgs) =
 	// This is used to make sure the session is available immediately upon rendering
 	const response = new Response();
 
-	const supabaseServerClient = createServerClient<Database>(
-		env.SUPABASE_URL as string,
-		env.SUPABASE_ANON_PUBLIC_KEY as string,
-		{
-			request,
-			response,
-		}
-	);
+	// Create a server side instance of the supabase client
+	const supabaseArgs = { request, response, context };
+	const supabaseServerClient = CreateSupabaseServerClient(supabaseArgs);
 
+	// Check if there is a session
 	const {
 		data: { session },
 	} = await supabaseServerClient.auth.getSession();
@@ -70,6 +67,7 @@ export default function Root() {
 	const [supabase] = useState(() => createBrowserClient<Database>(env.SUPABASE_URL, env.SUPABASE_ANON_PUBLIC_KEY));
 
 	const accessToken = session?.access_token;
+	const user = session?.user;
 
 	useEffect(() => {
 		const {
@@ -88,7 +86,7 @@ export default function Root() {
 		return () => {
 			subscription.unsubscribe();
 		};
-	}, [accessToken, supabase, fetcher]);
+	}, [user, accessToken, supabase, fetcher]);
 
 	return (
 		<html lang='en'>
@@ -97,7 +95,7 @@ export default function Root() {
 				<Links />
 			</head>
 			<body>
-				<Outlet context={{ supabase, session }} />
+				<Outlet context={{ supabase, session, user }} />
 				<ScrollRestoration />
 				<Scripts />
 				<LiveReload />

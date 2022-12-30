@@ -31,7 +31,7 @@ export async function getSession(request: Request) {
 // We use this function to pull the user from the session cookie
 export async function getUser(request: Request): Promise<Session['user'] | null> {
 	const session = await getSession(request);
-	const user =  session.get('user');
+	const user = session.get('user');
 	return user;
 }
 
