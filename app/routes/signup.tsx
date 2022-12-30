@@ -5,6 +5,7 @@ import { Form, Link } from '@remix-run/react';
 export const meta: MetaFunction = () => {
 	return {
 		title: 'Signup',
+		description: 'Signup for an account',
 	};
 };
 

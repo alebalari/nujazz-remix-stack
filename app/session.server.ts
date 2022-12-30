@@ -1,6 +1,6 @@
 import { createCookie, createCookieSessionStorage } from '@remix-run/cloudflare';
 import { redirect } from '@remix-run/server-runtime';
-import type { Session} from '@supabase/auth-helpers-remix';
+import type { Session } from '@supabase/auth-helpers-remix';
 
 const SESSION_MAX_AGE = 60 * 60 * 24 * 7; // 1 week
 const SESSION_DOMAIN = 'example.com';
@@ -22,10 +22,24 @@ export const sessionStorage = createCookieSessionStorage({
 	cookie: sessionCookie,
 });
 
-// We use this function to pull the general session cookie from the request
+// We use this function to pull the session cookie from the request
 export async function getSession(request: Request) {
 	const cookie = request.headers.get('Cookie');
 	return sessionStorage.getSession(cookie);
+}
+
+// We use this function to pull the user from the session cookie
+export async function getUser(request: Request): Promise<Session['user'] | null> {
+	const session = await getSession(request);
+	const user =  session.get('user');
+	return user;
+}
+
+// We use this function to pull the userId from the session cookie
+export async function getUserId(request: Request): Promise<Session['user']['id'] | null> {
+	const session = await getSession(request);
+	const userId = session.get('user')?.id;
+	return userId;
 }
 
 // We use this function to pull the access token from the session cookie
@@ -52,7 +66,7 @@ export async function commitAuthorizedSession({
 	redirectTo,
 }: {
 	request: Request;
-	accessToken: string;
+	accessToken: Session['access_token'];
 	rememberMe: boolean;
 	redirectTo: string;
 }) {
